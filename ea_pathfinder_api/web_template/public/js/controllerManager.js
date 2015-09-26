@@ -27,15 +27,19 @@ $(document).ready(function () {
 		e.preventDefault();
 		console.log("entered touchmove")
 
+		console.log(e);
+
 		touchobj = e.originalEvent.changedTouches[0];
-		var touchX = parseInt(touchobj.clientX);
-		var touchY = parseInt(touchobj.clientY);
+		var touchX = parseInt(touchobj.clientX) / screen.width;
+		var touchY = parseInt(touchobj.clientY) / screen.height;
 
 		//send message to unity
 		var msg = {
 			"type": "position",
 			"x-coordinate": touchX,
 			"y-coordinate": touchY
+
+
 		};
 		conn.sendMessage(msg, 0);
 	});
