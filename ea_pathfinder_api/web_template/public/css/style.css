@@ -17,29 +17,13 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-image: url('/img/controller.png');
-        /*background-color: #33ADD6;*/
-    }
-
-    #touchPad {
-        width: 100%;
-        height: 100%;
     }
 
     .touched {
         background-image: url('/img/controller_clicked.png');
-        /*background-color: #33ADD6;*/
     }
 
-    #startButton{
-        height: 20%;
-        width: 20%;
-        background: #000000; /*the colour of the button*/
-        /*style the text*/
-        font-size:2.0em;
-        text-align: center;
-        vertical-align: middle;
-        color: #fff;
-        border-radius: 40px;
-        position: absolute;
+    .start {
+        background-image: url('/img/controller_start.png');
     }
 }

@@ -7,43 +7,38 @@ All other use is strictly prohibited.
 */
 
 $(document).ready(function () {
-
-	console.log("Document Loaded");
+	startAudio = new Audio ("sound/electric-power-turn-on.mp3");
+	touchMoveAudio = new Audio ("sound/swish.mp3");
+	touchEndAudio = new Audio ("sound/blop.wav"); // buffer on load as soon as controller
 
 	// INIT..
 	conn = new Connection();
 	conn.sendMessage({"type": "connect"});
 
-	audio = new Audio ("sound/sci-fi-electricity.mp3");
+	// MENU, display start screen
+	var gameInProgress = 0;
+	$("body").addClass('start');
 
-	$("#startButton").on('touchend', function (e) {
-		console.log("sdf");
-		// this.m_state = 1;
-
-		// send msg to Unity
-		// var msg = {
-		// 	"type": "start"
-		// };
-		// conn.sendMessage(msg, 0);
-	});
-
-	$("#touchPad").on('touchstart', function (e) {
-		$("#touchPad").addClass('touched');
-		// audio = new Audio ("sound/electric-power-turn-on.mp3");
-		// audio.play();
-	});
-
-	$("#touchPad").on('touchend', function (e) {
-		$("#touchPad").removeClass('touched');
-		audio = new Audio ("sound/laser-gun-cannon.mp3"); // buffer on load as soon as controller
-		audio.play();
-		alert("END");
-	});
-
-	$("#touchPad").on('touchmove', function (e) {
+	$("body").on('touchstart', function (e) {
 		e.preventDefault();
-		audio = new Audio ("sound/woosh.wav");
-		audio.play();
+		if (!gameInProgress) {
+			startAudio.play();
+
+			// send msg to unity
+			var msg = { "type": "start" };
+			conn.sendMessage(msg, 0);
+
+			// GAME BEGINS, display game screen
+			gameInProgress = 1;
+			$("body").removeClass('start');
+		}
+		$("body").addClass('touched');
+
+	});
+
+	$("body").on('touchmove', function (e) {
+		e.preventDefault();
+		touchMoveAudio.play();
 
 		touchobj = e.originalEvent.changedTouches[0];
 		var touchX = parseInt(touchobj.clientX) / screen.height; // height and width switched in landscape view for mobile!
@@ -56,5 +51,11 @@ $(document).ready(function () {
 			"y-coordinate": touchY
 		};
 		conn.sendMessage(msg, 0);
+	});
+
+	$("body").on('touchend', function (e) {
+		e.preventDefault();
+		$("body").removeClass('touched');
+		touchEndAudio.play();
 	});
 });
