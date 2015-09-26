@@ -27,13 +27,17 @@ $(document).ready(function () {
 		e.preventDefault();
 		console.log("entered touchmove")
 
+		touchobj = e.originalEvent.changedTouches[0];
+		var touchX = parseInt(touchobj.clientX);
+		var touchY = parseInt(touchobj.clientY);
+
 		//send message to unity
-		// var msg = {
-		// 	"type": "position",
-		// 	"x-coordinate": x,
-		// 	"y-coordinate": y
-		// };
-		// conn.sendMessage(msg, 0);
+		var msg = {
+			"type": "position",
+			"x-coordinate": touchX,
+			"y-coordinate": touchY
+		};
+		conn.sendMessage(msg, 0);
 	});
 });
 
