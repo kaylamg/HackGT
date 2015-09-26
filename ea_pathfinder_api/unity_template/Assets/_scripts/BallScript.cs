@@ -8,7 +8,7 @@ public class BallScript : MonoBehaviour {
 	public GameObject [] ballOpenings;
 
 
-	private int ballSpeed = 5;
+	private int ballSpeed = 2;
 	private bool startGame = false;
 
 	// Use this for initialization
@@ -22,20 +22,10 @@ public class BallScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (startGame == true) {
-
-			balls [1].transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
+		if (startGame == true && balls[0].activeSelf == true) {
+			balls [0].transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
 		}
 	
 	}
-
-	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "wall") {
-			Destroy(gameObject);
-		}
-	}
-
-
-
 
 }
