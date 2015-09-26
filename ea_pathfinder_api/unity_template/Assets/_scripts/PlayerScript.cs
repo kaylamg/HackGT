@@ -26,8 +26,8 @@ public class PlayerScript : MonoBehaviour {
 	void positionHandler (ControllerMessage msg){
 		ctlrNum = msg.ControllerSource;
 		//Debug.Log (float.Parse(msg.Payload.GetField ("x-coordinate").ToString ()));
-		float x = -3f + float.Parse (msg.Payload.GetField ("x-coordinate").ToString ()) * 17;
-		float y = -(-3f + float.Parse (msg.Payload.GetField ("y-coordinate").ToString()) * 9);
+		float x = float.Parse (msg.Payload.GetField ("x-coordinate").ToString ()) * 17;
+		float y = -(float.Parse (msg.Payload.GetField ("y-coordinate").ToString()) * 9) + 9;
 		//Debug.Log (controllers [ctlrNum - 1].transform.position.z);
 		//Vector3 newPos = (x, y, (controllers [ctlrNum - 1].transform.position.z));
 		//Debug.Log (newPos);
