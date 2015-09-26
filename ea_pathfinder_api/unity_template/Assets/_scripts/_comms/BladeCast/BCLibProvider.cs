@@ -124,7 +124,7 @@ namespace BladeCast
 		private void OnOpen (SocketIOEvent e)
 		{
 			if (!mIsConnected) {
-				Debug.Log ("[SocketIO] Open received: " + e.name + " " + e.data);
+				//Debug.Log ("[SocketIO] Open received: " + e.name + " " + e.data);
 				mIsConnected = true;
 				mSocketComponent.Emit ("unity");
 			}
@@ -132,7 +132,7 @@ namespace BladeCast
         
 		private void OnError (SocketIOEvent e)
 		{
-			Debug.Log ("[SocketIO] Error received: " + e.name + " " + e.data);
+			//Debug.Log ("[SocketIO] Error received: " + e.name + " " + e.data);
 		}
         
 		private void OnClose (SocketIOEvent e)
