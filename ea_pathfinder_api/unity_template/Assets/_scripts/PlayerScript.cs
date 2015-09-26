@@ -8,13 +8,14 @@ public class PlayerScript : MonoBehaviour {
 
 	public GameObject [] controllers;
 
+	public bool inCollision = false;
+
 	private int ctlrNum;
 
 	// Use this for initialization
 	void Start () {
 
 		BCMessenger.Instance.RegisterListener ("position", 0, this.gameObject, "positionHandler");
-
 	
 	}
 	
@@ -24,6 +25,10 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void positionHandler (ControllerMessage msg){
+		if (inCollision == true) {
+			StartCoroutine(newDirectionDelay());
+		}
+
 		ctlrNum = msg.ControllerSource;
 		//Debug.Log (float.Parse(msg.Payload.GetField ("x-coordinate").ToString ()));
 		float x = float.Parse (msg.Payload.GetField ("x-coordinate").ToString ()) * 17;
@@ -36,5 +41,14 @@ public class PlayerScript : MonoBehaviour {
 		Debug.Log ("Y POSITION: " + y);
 	}
 
+
+	IEnumerator newDirectionDelay() {
+		print(Time.time);
+		yield return new WaitForSeconds(2);
+		print(Time.time);
+		inCollision = false;
+	}
+
+	
 
 }

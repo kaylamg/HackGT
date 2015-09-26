@@ -8,7 +8,7 @@ public class BallScript : MonoBehaviour {
 	public GameObject [] ballOpenings;
 
 
-	private int ballSpeed = 2;
+	//private int ballSpeed = 2;
 	private bool startGame = false;
 
 	// Use this for initialization
@@ -22,9 +22,9 @@ public class BallScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (startGame == true && balls[0] != null) {
-			balls [0].transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
-		}
+//		if (startGame == true && balls[0] != null) {
+//			balls [0].transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
+//		}
 	
 	}
 
