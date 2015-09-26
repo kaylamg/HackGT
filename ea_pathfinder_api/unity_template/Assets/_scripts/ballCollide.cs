@@ -16,7 +16,7 @@ public class ballCollide : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		GetComponent<MeshRenderer> ().enabled = false;
+		//GetComponent<MeshRenderer> ().enabled = false;
 		playerControl = GameObject.Find ("PlayerScript");
 	
 	}
@@ -25,7 +25,7 @@ public class ballCollide : MonoBehaviour {
 	void Update () {
 
 
-		if (startGame == true) {
+		//if (startGame == true) {
 			GetComponent<MeshRenderer> ().enabled = true;
 			if (ballDirection == 1) {
 				transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
@@ -38,7 +38,7 @@ public class ballCollide : MonoBehaviour {
 			} else if (ballDirection == 0) {
 				transform.localPosition += transform.up * 0 * Time.deltaTime;
 			}
-		}
+		//}
 
 	}
 
