@@ -26,8 +26,8 @@ $(document).ready(function () {
 		e.preventDefault();
 
 		touchobj = e.originalEvent.changedTouches[0];
-		var touchX = parseInt(touchobj.clientX) / screen.height; // height and width switched in landscape view for mobile!
-		var touchY = parseInt(touchobj.clientY) / screen.width;
+		var touchX = parseInt(touchobj.screenX) / screen.height; // height and width switched in landscape view for mobile!
+		var touchY = parseInt(touchobj.screenY) / screen.width;
 
 		//send message to unity
 		var msg = {

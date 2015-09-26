@@ -30,13 +30,17 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		ctlrNum = msg.ControllerSource;
-		//Debug.Log (float.Parse(msg.Payload.GetField ("x-coordinate").ToString ()));
-		float x = float.Parse (msg.Payload.GetField ("x-coordinate").ToString ()) * 17;
-		float y = -(float.Parse (msg.Payload.GetField ("y-coordinate").ToString()) * 9) + 9;
-		//Debug.Log (controllers [ctlrNum - 1].transform.position.z);
-		//Vector3 newPos = (x, y, (controllers [ctlrNum - 1].transform.position.z));
-		//Debug.Log (newPos);
-		controllers [ctlrNum - 1].transform.localPosition = new Vector3 (x, y, 0);
+
+		float x = float.Parse (msg.Payload.GetField ("x-coordinate").ToString ());
+		float y = float.Parse (msg.Payload.GetField ("y-coordinate").ToString());
+
+		Vector3 newPos = Camera.main.ViewportToWorldPoint(new Vector3 (x, 1- y, -1));
+		Debug.Log (newPos);
+
+		newPos.z = -1;
+		//newPos.y = -newPos.y;
+
+		controllers [ctlrNum - 1].transform.position = newPos;
 		Debug.Log ("X POSITION: " + x);
 		Debug.Log ("Y POSITION: " + y);
 	}
