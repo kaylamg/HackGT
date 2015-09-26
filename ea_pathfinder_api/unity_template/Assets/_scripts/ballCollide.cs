@@ -7,13 +7,16 @@ public class ballCollide : MonoBehaviour {
 	//cube 0 will be the top right cube for player 1, 1 will be bottom left, 2 & 3 will be for controller 2, etc.
 	public GameObject[] hitCubes;
 
-	private float ballSpeed = 0.5f;
+	public float ballSpeed = 0.5f;
 	//1 will mean right, 2 down, 3 left, 4 up, 0 not moving
-	private int ballDirection = 2;
+	public int ballDirection = 2;
+
+	public bool startGame = false;
 
 	// Use this for initialization
 	void Start () {
 
+		GetComponent<MeshRenderer> ().enabled = false;
 		playerControl = GameObject.Find ("PlayerScript");
 	
 	}
@@ -21,16 +24,20 @@ public class ballCollide : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (ballDirection == 1) {
-			transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
-		} else if (ballDirection == 2) {
-			transform.localPosition += -transform.up * ballSpeed * Time.deltaTime;
-		} else if (ballDirection == 3) {
-			transform.localPosition += -transform.right * ballSpeed * Time.deltaTime;
-		} else if (ballDirection == 4) {
-			transform.localPosition += transform.up * ballSpeed * Time.deltaTime;
-		} else if (ballDirection == 0) {
-			transform.localPosition += transform.up * 0 * Time.deltaTime;
+
+		if (startGame == true) {
+			GetComponent<MeshRenderer> ().enabled = true;
+			if (ballDirection == 1) {
+				transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
+			} else if (ballDirection == 2) {
+				transform.localPosition += -transform.up * ballSpeed * Time.deltaTime;
+			} else if (ballDirection == 3) {
+				transform.localPosition += -transform.right * ballSpeed * Time.deltaTime;
+			} else if (ballDirection == 4) {
+				transform.localPosition += transform.up * ballSpeed * Time.deltaTime;
+			} else if (ballDirection == 0) {
+				transform.localPosition += transform.up * 0 * Time.deltaTime;
+			}
 		}
 
 	}

@@ -7,15 +7,19 @@ public class BallScript : MonoBehaviour {
 	//the 0 index will be the top, 1 will be the right, etc.
 	public GameObject [] ballOpenings;
 
+	public GameObject ballCollideScript;
+
 
 	//private int ballSpeed = 2;
-	private bool startGame = false;
+	//private bool startGame = false;
 
 	// Use this for initialization
 	void Start () {
 
+		ballCollideScript = GameObject.Find ("ballCollide");
+
 		//ask user if they want to start the game
-		startGame = true;
+		//startGame = true;
 	
 	}
 	
