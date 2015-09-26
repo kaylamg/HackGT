@@ -20,6 +20,12 @@ public class ballCollide : MonoBehaviour {
 		if (other.tag == "wall") {
 			Destroy (gameObject);
 		}
+
+		if (other.tag == "Pipe") {
+			Debug.Log ("**** entered a pipe");
+		}
 	}
+
+
 
 }
