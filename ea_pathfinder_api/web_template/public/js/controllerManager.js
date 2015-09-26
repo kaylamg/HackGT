@@ -30,16 +30,14 @@ $(document).ready(function () {
 		console.log(e);
 
 		touchobj = e.originalEvent.changedTouches[0];
-		var touchX = parseInt(touchobj.clientX) / screen.width;
-		var touchY = parseInt(touchobj.clientY) / screen.height;
+		var touchX = parseInt(touchobj.clientX) / screen.height; // height and width switched in landscape view for mobile!
+		var touchY = parseInt(touchobj.clientY) / screen.width;
 
 		//send message to unity
 		var msg = {
 			"type": "position",
 			"x-coordinate": touchX,
 			"y-coordinate": touchY
-
-
 		};
 		conn.sendMessage(msg, 0);
 	});
