@@ -9,6 +9,7 @@ TagManager:
   - Pipe2
   - Pipe3
   - Pipe4
+  - Goal1
   layers:
   - Default
   - TransparentFX

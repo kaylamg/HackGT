@@ -7,9 +7,9 @@ public class ballCollide : MonoBehaviour {
 	//cube 0 will be the top right cube for player 1, 1 will be bottom left, 2 & 3 will be for controller 2, etc.
 	public GameObject[] hitCubes;
 
-	private float ballSpeed = 2f;
+	private float ballSpeed = 0.5f;
 	//1 will mean right, 2 down, 3 left, 4 up, 0 not moving
-	private int ballDirection = 1;
+	private int ballDirection = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -111,8 +111,11 @@ public class ballCollide : MonoBehaviour {
 				StartCoroutine (newDirectionPipeFourDelay ());
 				//ball needs to reappear in a new place, going a new direction
 			}
+		} else if (other.tag == "Goal1") {
+			Debug.Log ("GOOOOOOAL");
+			Destroy(gameObject);
 		}
-		//else if the bll hits goal the ball is destroyed
+
 
 	}
 
