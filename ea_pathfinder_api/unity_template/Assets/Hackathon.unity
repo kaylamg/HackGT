@@ -248,7 +248,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -275,7 +275,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -350,7 +350,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -377,7 +377,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -659,7 +659,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -686,7 +686,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1124,7 +1124,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -1151,7 +1151,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1226,7 +1226,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -1253,7 +1253,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1376,7 +1376,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -1403,7 +1403,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1478,7 +1478,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -1505,7 +1505,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1783,7 +1783,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1826,7 +1826,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -2150,7 +2150,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2193,7 +2193,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -2471,7 +2471,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2526,7 +2526,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -2658,7 +2658,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -2685,7 +2685,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2760,7 +2760,7 @@ Rigidbody:
   m_Mass: 1.00000001e-07
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -2787,7 +2787,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7d4e52ee047834c3e94522d93fe0da9f, type: 2}
+  - {fileID: 2100000, guid: b5f56417e27a84ec3988fae2f25551e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

@@ -129,13 +129,13 @@ public class ballCollide : MonoBehaviour {
 
 		//if ball was moving to the left
 		if (oldBallDirection == 3){
-			transform.position = new Vector3(transform.position.x - 1, transform.position.y - 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x - 1.2f, transform.position.y - 1.2f, transform.position.z);
 			ballDirection = 2;
 		}
 
 		//if ball was moving up
 		if (oldBallDirection == 4){
-			transform.position = new Vector3(transform.position.x + 1, transform.position.y + 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x + 1.2f, transform.position.y + 1.2f, transform.position.z);
 			ballDirection = 1;
 		}
 	}
@@ -154,13 +154,13 @@ public class ballCollide : MonoBehaviour {
 		
 		//if ball was moving to the left
 		if (oldBallDirection == 1){
-			transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x + 1.2f, transform.position.y - 1.2f, transform.position.z);
 			ballDirection = 2;
 		}
 		
 		//if ball was moving up
 		if (oldBallDirection == 4){
-			transform.position = new Vector3(transform.position.x - 1, transform.position.y + 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x - 1.2f, transform.position.y + 1.2f, transform.position.z);
 			ballDirection = 3;
 		}
 	}
@@ -178,13 +178,13 @@ public class ballCollide : MonoBehaviour {
 		
 		//if ball was moving to the left
 		if (oldBallDirection == 3){
-			transform.position = new Vector3(transform.position.x - 1, transform.position.y + 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x - 1.2f, transform.position.y + 1.2f, transform.position.z);
 			ballDirection = 4;
 		}
 		
 		//if ball was moving up
 		if (oldBallDirection == 2){
-			transform.position = new Vector3(transform.position.x + 1, transform.position.y - 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x + 1.2f, transform.position.y - 1.2f, transform.position.z);
 			ballDirection = 1;
 		}
 	}
@@ -202,13 +202,13 @@ public class ballCollide : MonoBehaviour {
 		
 		//if ball was moving to the left
 		if (oldBallDirection == 1){
-			transform.position = new Vector3(transform.position.x + 1, transform.position.y + 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x + 1.2f, transform.position.y + 1.2f, transform.position.z);
 			ballDirection = 4;
 		}
 		
 		//if ball was moving up
 		if (oldBallDirection == 2){
-			transform.position = new Vector3(transform.position.x - 1, transform.position.y - 1f, transform.position.z);
+			transform.position = new Vector3(transform.position.x - 1.2f, transform.position.y - 1.2f, transform.position.z);
 			ballDirection = 3;
 		}
 	}
