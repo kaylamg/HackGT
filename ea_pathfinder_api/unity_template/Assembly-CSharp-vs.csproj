@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_scripts\BallScript.cs" />
+     <Compile Include="Assets\_scripts\PlayerScript.cs" />
      <Compile Include="Assets\_scripts\_comms\BladeCast\BCInput.cs" />
      <Compile Include="Assets\_scripts\_comms\BladeCast\BCLibProvider.cs" />
      <Compile Include="Assets\_scripts\_comms\BladeCast\BCMessenger.cs" />
