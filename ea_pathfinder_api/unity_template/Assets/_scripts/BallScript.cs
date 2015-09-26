@@ -22,7 +22,7 @@ public class BallScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (startGame == true && balls[0].activeSelf(true)) {
+		if (startGame == true && balls[0].activeSelf == true) {
 			balls [0].transform.localPosition += transform.right * ballSpeed * Time.deltaTime;
 		}
 	
