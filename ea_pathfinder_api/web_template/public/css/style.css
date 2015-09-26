@@ -3,7 +3,7 @@
     /* Preload images */
     body:before {
         display: none;
-        /*content: url('/img/sample_background.jpg')*/
+        content: url('/img/controller.png');
     }
 
     html, body {
@@ -17,12 +17,11 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-image: url('/img/controller.png');
+        background-color: #33ADD6;
     }
 
-/*    #pause {
-        position: absolute;
-        right: 0;
-        top: 5%;
-        width: 12%;
-    }*/
+    .touched {
+        background-image: url('/img/controller_clicked.png');
+        background-color: #33ADD6;
+    }
 }
