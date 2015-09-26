@@ -138,6 +138,7 @@
      <Compile Include="Assets\_scripts\_core\Singleton.cs" />
      <Compile Include="Assets\_scripts\_other\ChildCollider.cs" />
      <Compile Include="Assets\_scripts\_other\SimpleStateMachine.cs" />
+     <Compile Include="Assets\_scripts\ballCollide.cs" />
      <None Include="Assets\_scripts\_comms\JSONObject\readme.txt" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
