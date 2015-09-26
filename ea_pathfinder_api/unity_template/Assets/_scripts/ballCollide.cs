@@ -7,9 +7,12 @@ public class ballCollide : MonoBehaviour {
 	//cube 0 will be the top right cube for player 1, 1 will be bottom left, 2 & 3 will be for controller 2, etc.
 	public GameObject[] hitCubes;
 
-	public float ballSpeed = 0.5f;
+	public GameObject levelScript;
+
+	public float ballSpeed = 5f;
+
 	//1 will mean right, 2 down, 3 left, 4 up, 0 not moving
-	public int ballDirection = 2;
+	public int ballDirection;
 
 	public bool startGame = false;
 
@@ -18,6 +21,9 @@ public class ballCollide : MonoBehaviour {
 
 		//GetComponent<MeshRenderer> ().enabled = false;
 		playerControl = GameObject.Find ("PlayerScript");
+
+		levelScript = GameObject.Find("Level Script");
+
 	
 	}
 	
@@ -48,6 +54,9 @@ public class ballCollide : MonoBehaviour {
 		if (other.tag == "wall") {
 			Debug.Log ("**** I hit the wall");
 			Destroy (gameObject);
+
+			levelScript.GetComponent<LevelScript>().lose();
+				
 
 		} else if (other.tag == "Pipe1") {
 			Debug.Log ("**** I have hit pipe ONE!!");
@@ -121,6 +130,9 @@ public class ballCollide : MonoBehaviour {
 		} else if (other.tag == "Goal1") {
 			Debug.Log ("GOOOOOOAL");
 			Destroy(gameObject);
+
+			levelScript.GetComponent<LevelScript>().win();
+			
 		}
 
 
