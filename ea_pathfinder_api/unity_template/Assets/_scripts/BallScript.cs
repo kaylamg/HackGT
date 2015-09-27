@@ -11,7 +11,7 @@ public class BallScript : MonoBehaviour {
 
 
 	//private int ballSpeed = 2;
-	//private bool startGame = false;
+	//private bool star	tGame = false;
 
 	// Use this for initialization
 	void Start () {

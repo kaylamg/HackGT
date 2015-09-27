@@ -5,10 +5,6 @@ using BladeCast;
 using UnityEngine.Audio;
 
 public class LevelScript : MonoBehaviour {
-
-	//audio stuff
-	public AudioClip goalSound;
-	AudioSource audio;
 	
 	public int playerLevel;
 	public GameObject endGameTextPanel;
@@ -44,7 +40,7 @@ public class LevelScript : MonoBehaviour {
 		BCMessenger.Instance.RegisterListener ("start", 0, this.gameObject, "startHandler");
 
 		ballCollideScript = GameObject.Find ("ballMoveScript");
-		audio = GetComponent<AudioSource>();
+		//audio = GetComponent<AudioSource>();
 
 	}
 
@@ -53,7 +49,7 @@ public class LevelScript : MonoBehaviour {
 			for (int i = 0; i < lives; i++) {
 				livesArray [i].SetActive (true);
 			}
-			playerLevel = 1; //0
+			playerLevel = 0; //0
 			setupLevel ();
 			restartGame ();
 	}
@@ -76,7 +72,7 @@ public class LevelScript : MonoBehaviour {
 	}
 
 	public void win () {
-		audio.PlayOneShot(goalSound, 0.7F);
+		//audio.PlayOneShot(goalSound, 0.7F);
 		currentBall++;
 		restartGame ();
 		
@@ -187,7 +183,52 @@ public class LevelScript : MonoBehaviour {
 			}
 			break;
 
-		case (2):
+		case (2): /* LEVEL 3 */
+			switch (currentBall){
+			case (0):
+				GameObject ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(5.92f, 0.52f, -1), Quaternion.identity);
+				ball.GetComponent<ballCollide>().ballDirection = 1;
+				ball.GetComponent<ballCollide>().ballSpeed = 2;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LLP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LRP;
+				break;
+				
+			case (1):
+				ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(0.14f, -3.8f, -1), Quaternion.identity);
+				ball.GetComponent<ballCollide>().ballDirection = 3;
+				ball.GetComponent<ballCollide>().ballSpeed = 2;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LLP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LRP;
+				break;
+				
+			case (2):
+				ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(-6.12f, 0.13f, -1), Quaternion.identity);
+				ball.GetComponent<ballCollide>().ballDirection = 4;
+				ball.GetComponent<ballCollide>().ballSpeed = 2;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LLP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LRP;
+				break;
+				
+			case(3):
+				ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(-6.95f, 3.13f, -1), Quaternion.identity);
+				ball.GetComponent<ballCollide>().ballDirection = 4;
+				ball.GetComponent<ballCollide>().ballSpeed = 2;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LLP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LRP;
+				break;
+				
+			case(4):
+				increaseLevel();
+				break;
+			}
 			break;
 		}
 	}
@@ -197,25 +238,26 @@ public class LevelScript : MonoBehaviour {
 		destroyLevel ();
 		playerLevel++;
 		setupLevel ();
-		if (lives < 10) {
-			lives ++; 
-			for (int i = 0; i < lives; i++) {
-				livesArray [i].SetActive (true);
-			}
-		}
+//		if (lives < 10) {
+//			lives ++; 
+//			for (int i = 0; i < lives; i++) {
+//				livesArray [i].SetActive (true);
+//			}
+//		}
 		levelUpPanel.SetActive (true);
 		StartCoroutine (levelUpDelay());
 	}
 
 	public void destroyLevel() {
-		Destroy (ULP);
-		Destroy (URP);
-		Destroy (LLP);
-		Destroy (LRP);
+//		Destroy (ULP);
+//		Destroy (URP);
+//		Destroy (LLP);
+//		Destroy (LRP);
 
 		switch (playerLevel) {
 		case(0):
 			Destroy(OrangeGoal);
+			OrangeGoal.GetComponent<MeshRenderer>().enabled = false;
 			break;
 
 		case(1):
@@ -223,6 +265,12 @@ public class LevelScript : MonoBehaviour {
 			Destroy (walls[0]);
 			Destroy (walls[1]);
 			Destroy (walls[2]);
+			break;
+		
+		case(2):
+			Destroy (OrangeGoal);
+			Destroy (walls[3]);
+			Destroy (walls[1]);
 			break;
 		}
 
@@ -234,7 +282,6 @@ public class LevelScript : MonoBehaviour {
 		switch (playerLevel) {
 		
 		case(0):
-
 			Instantiate (ULP, transform.position = new Vector3 (-4, 2, -1), Quaternion.identity);
 			Instantiate (URP, transform.position = new Vector3 (4, 2, -1), Quaternion.identity);
 			Instantiate (LLP, transform.position = new Vector3 (-4, -3, -1), Quaternion.identity);
@@ -244,16 +291,29 @@ public class LevelScript : MonoBehaviour {
 			break;
 
 		case(1):
-			Instantiate (ULP, transform.position = new Vector3 (-4, 2, -1), Quaternion.identity);
-			Instantiate (URP, transform.position = new Vector3 (4, 2, -1), Quaternion.identity);
-			Instantiate (LLP, transform.position = new Vector3 (-4, -3, -1), Quaternion.identity);
-			Instantiate (LRP, transform.position = new Vector3 (4, -3, -1), Quaternion.identity);
+//			Instantiate (ULP, transform.position = new Vector3 (-4, 2, -1), Quaternion.identity);
+//			Instantiate (URP, transform.position = new Vector3 (4, 2, -1), Quaternion.identity);
+//			Instantiate (LLP, transform.position = new Vector3 (-4, -3, -1), Quaternion.identity);
+//			Instantiate (LRP, transform.position = new Vector3 (4, -3, -1), Quaternion.identity);
 
 			Instantiate (OrangeGoal, transform.position = new Vector3 (3.87f, 4.49f, -0.52f), Quaternion.identity);
+			//OrangeGoal.transform.position = new Vector3 (3.87f, 4.49f, -0.52f);
 
 			Instantiate (walls[0], transform.position = new Vector3 (0.14f, 3.51f, -0.73f), Quaternion.identity);
 			Instantiate (walls[1], transform.position = new Vector3 (-4.18f, 0.86f, -0.73f), Quaternion.identity);
 			Instantiate (walls[2], transform.position = new Vector3 (4.04f, -0.34f, -0.73f), Quaternion.identity);
+			break;
+
+		case(2):
+			Instantiate (ULP, transform.position = new Vector3 (-4, 2, -1), Quaternion.identity);
+			Instantiate (URP, transform.position = new Vector3 (4, 2, -1), Quaternion.identity);
+			Instantiate (LLP, transform.position = new Vector3 (-4, -3, -1), Quaternion.identity);
+			Instantiate (LRP, transform.position = new Vector3 (4, -3, -1), Quaternion.identity);
+			
+			Instantiate (OrangeGoal, transform.position = new Vector3 (-8.38f, 3.2f, -0.52f), Quaternion.Euler(new Vector3(0,0,0)));
+			
+			Instantiate (walls[3], transform.position = new Vector3 (-3.94f, 1.76f, -0.73f), Quaternion.identity);
+			Instantiate (walls[1], transform.position = new Vector3 (0.14f, -1.82f, -0.73f), Quaternion.identity);
 			break;
 
 		}
@@ -271,6 +331,7 @@ public class LevelScript : MonoBehaviour {
 		yield return new WaitForSeconds (2);
 		print (Time.time);
 		levelUpPanel.SetActive (false);
+		restartGame ();
 	}
 
 

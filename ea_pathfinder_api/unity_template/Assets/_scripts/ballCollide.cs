@@ -19,6 +19,9 @@ public class ballCollide : MonoBehaviour {
 
 	public bool startGame = false;
 
+	public bool inCollisionPublic;
+	private bool inCollision;
+
 	// Use this for initialization
 	void Start () {
 
@@ -32,6 +35,8 @@ public class ballCollide : MonoBehaviour {
 		hitCubes [1] = GameObject.Find ("UpperRightPrefab(Clone)");
 		hitCubes [2] = GameObject.Find ("LowerLeftPrefab(Clone)");
 		hitCubes [3] = GameObject.Find ("LowerRightPrefab(Clone)");
+		inCollisionPublic = false;
+
 	
 	}
 	
@@ -53,6 +58,9 @@ public class ballCollide : MonoBehaviour {
 				transform.localPosition += transform.up * 0 * Time.deltaTime;
 			}
 		//}
+
+		if (inCollision)
+			inCollisionPublic = true;
 
 	}
 
@@ -81,7 +89,8 @@ public class ballCollide : MonoBehaviour {
 			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
 
 				//pipe needs freezes by calling player script and setting collision true
-				playerControl.GetComponent<PlayerScript> ().inCollision = true;
+
+				Debug.Log ("NOW LEAING PIPE ONE ******************");
 
 
 				//ball needs to disappear to "go through" pipe
@@ -106,9 +115,6 @@ public class ballCollide : MonoBehaviour {
 
 			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
 				
-				//pipe needs freezes by calling player script and setting collision true
-				playerControl.GetComponent<PlayerScript> ().inCollision = true;
-
 				//ball needs to disappear to "go through" pipe
 				GetComponent<MeshRenderer> ().enabled = false;
 				this.enabled = false;
@@ -132,10 +138,6 @@ public class ballCollide : MonoBehaviour {
 
 
 			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
-				
-				//pipe needs freezes by calling player script and setting collision true
-				playerControl.GetComponent<PlayerScript> ().inCollision = true;
-				
 				
 				//ball needs to disappear to "go through" pipe
 				GetComponent<MeshRenderer> ().enabled = false;
@@ -161,9 +163,6 @@ public class ballCollide : MonoBehaviour {
 			
 			if ((cond1 && cond2 && cond3)|| (cond4 && cond5 && cond6)) {
 				
-				//pipe needs freezes by calling player script and setting collision true
-				playerControl.GetComponent<PlayerScript> ().inCollision = true;
-				
 				
 				//ball needs to disappear to "go through" pipe
 				GetComponent<MeshRenderer> ().enabled = false;
@@ -183,13 +182,15 @@ public class ballCollide : MonoBehaviour {
 	}
 
 	IEnumerator newDirectionPipeOneDelay() {
-
+		inCollision = true;
 		int oldBallDirection = ballDirection;
 		Debug.Log (oldBallDirection);
 
 		ballDirection = 0;
 		print(Time.time);
 		yield return new WaitForSeconds(1);
+		Debug.Log ("Collision ends here");
+		inCollision = false;
 		print(Time.time);
 		GetComponent<MeshRenderer>().enabled = true;
 		this.enabled = true;
@@ -209,7 +210,7 @@ public class ballCollide : MonoBehaviour {
 
 
 	IEnumerator newDirectionPipeTwoDelay() {
-
+		inCollision = true;
 		int oldBallDirection = ballDirection;
 		Debug.Log (oldBallDirection);
 		
@@ -217,6 +218,7 @@ public class ballCollide : MonoBehaviour {
 		print(Time.time);
 		yield return new WaitForSeconds(1);
 		print(Time.time);
+		inCollision = false;
 		GetComponent<MeshRenderer>().enabled = true;
 		this.enabled = true;
 		
@@ -234,6 +236,7 @@ public class ballCollide : MonoBehaviour {
 	}
 
 	IEnumerator newDirectionPipeThreeDelay() {
+		inCollision = true;
 		
 		int oldBallDirection = ballDirection;
 		Debug.Log (oldBallDirection);
@@ -243,6 +246,7 @@ public class ballCollide : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		print(Time.time);
 		GetComponent<MeshRenderer>().enabled = true;
+		inCollision = false;
 		this.enabled = true;
 		
 		//if ball was moving to the left
@@ -259,6 +263,7 @@ public class ballCollide : MonoBehaviour {
 	}
 
 	IEnumerator newDirectionPipeFourDelay() {
+		inCollision = true;
 		
 		int oldBallDirection = ballDirection;
 		Debug.Log (oldBallDirection);
@@ -268,6 +273,7 @@ public class ballCollide : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		print(Time.time);
 		GetComponent<MeshRenderer>().enabled = true;
+		inCollision = false;
 		this.enabled = true;
 		
 		//if ball was moving to the left
