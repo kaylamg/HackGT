@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using BladeCast;
 
 public class LevelScript : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class LevelScript : MonoBehaviour {
 	public GameObject ballCollideScript;
 
 	public GameObject ballPrefab;
+
+	private int playerReadyCount = 3; //0;
 
 	public GameObject ULP;
 	public GameObject URP;
@@ -32,21 +35,36 @@ public class LevelScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i < lives; i++) {
-			livesArray[i].SetActive(true);
-		}
-		playerLevel = 0;
-		lives = 5;
-		ballCollideScript = GameObject.Find ("ballMoveScript");
-		setupLevel ();
-	
-		restartGame ();
 
-	
+		BCMessenger.Instance.RegisterListener ("start", 0, this.gameObject, "startHandler");
+
 	}
-	
+
+	void playersReadyInitializeGame (){
+			lives = 5;
+			for (int i = 0; i < lives; i++) {
+				livesArray [i].SetActive (true);
+			}
+			playerLevel = 1; //0
+			ballCollideScript = GameObject.Find ("ballMoveScript");
+			setupLevel ();
+			restartGame ();
+	}
+
+
+	void startHandler (ControllerMessage msg){
+		int ctlrNum = msg.ControllerSource;
+		playerReadyCount ++; 
+
+		if (playerReadyCount == 4) {
+			playersReadyInitializeGame();
+		}
+	}
+
+
 	// Update is called once per frame
 	void Update () {
+
 	
 	}
 
@@ -171,7 +189,14 @@ public class LevelScript : MonoBehaviour {
 		destroyLevel ();
 		playerLevel++;
 		setupLevel ();
+		if (lives < 10) {
+			lives ++; 
+			for (int i = 0; i < lives; i++) {
+				livesArray [i].SetActive (true);
+			}
+		}
 		levelUpPanel.SetActive (true);
+		StartCoroutine (levelUpDelay());
 	}
 
 	public void destroyLevel() {
@@ -227,6 +252,7 @@ public class LevelScript : MonoBehaviour {
 	}
 
 	public void endGame() {
+		levelUpPanel.SetActive (false);
 		endGameTextPanel.SetActive(true);
 		Debug.Log ("You Lost!");
 	}

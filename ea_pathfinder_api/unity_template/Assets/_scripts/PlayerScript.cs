@@ -53,9 +53,9 @@ public class PlayerScript : MonoBehaviour {
 
 		yield return new WaitForSeconds(5);
 
-		Debug.Log ("after 3 second");
+		//Debug.Log ("after 3 second");
 		//inCollision = false;
-		Debug.Log ("false now");
+		//Debug.Log ("false now");
 	}
 
 	
