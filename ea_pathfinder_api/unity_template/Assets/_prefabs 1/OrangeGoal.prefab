@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6528620}
   - 23: {fileID: 2323078}
   m_Layer: 0
-  m_Name: Goal
+  m_Name: OrangeGoal
   m_TagString: Goal1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
