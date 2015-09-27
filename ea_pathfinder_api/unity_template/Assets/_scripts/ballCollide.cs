@@ -80,9 +80,11 @@ public class ballCollide : MonoBehaviour {
 			Debug.Log ("**** I entered pipe TWO!!");
 
 			//check that the ball is validly hitting the pipe, if no, nothing happens
-			if ((ballDirection == 1 && (hitCubes [2].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [2].transform.position.y + 0.3f)) || (ballDirection == 4 && (hitCubes [3].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [3].transform.position.x + 0.3f))) {
-				
-				//Debug.Log ("HIT CUBES Left: " + (hitCubes [1].transform.position.x - 0.1f) + "X POSITION: " + transform.position.x + "RIGHT POS: " + (hitCubes [1].transform.position.x + 0.1f));
+			//Debug.Log (hitCubes [3].transform.position.y + " " + transform.position.y);
+
+			if ((ballDirection == 1 && (hitCubes [3].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [3].transform.position.y + 0.3f)) || (ballDirection == 4 && (hitCubes [2].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [2].transform.position.x + 0.3f))) {
+
+				Debug.Log ("INSIDE PIPE 2 FUNCTION");
 				
 				//pipe needs freezes by calling player script and setting collision true
 				playerControl.GetComponent<PlayerScript> ().inCollision = true;
@@ -98,7 +100,7 @@ public class ballCollide : MonoBehaviour {
 			Debug.Log ("**** I entered pipe THREE!!");
 
 			//check that the ball is validly hitting the pipe, if no, nothing happens
-			if ((ballDirection == 3 && (hitCubes [5].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [5].transform.position.y + 0.3f)) || (ballDirection == 2 && (hitCubes [4].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [4].transform.position.x + 0.3f))) {
+			//if ((ballDirection == 3 && (hitCubes [5].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [5].transform.position.y + 0.3f)) || (ballDirection == 2 && (hitCubes [4].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [4].transform.position.x + 0.3f))) {
 
 				
 				//pipe needs freezes by calling player script and setting collision true
@@ -109,13 +111,13 @@ public class ballCollide : MonoBehaviour {
 				GetComponent<MeshRenderer> ().enabled = false;
 				StartCoroutine (newDirectionPipeThreeDelay ());
 				//ball needs to reappear in a new place, going a new direction
-			}
+			//}
 
 		} else if (other.tag == "Pipe4") {
 			Debug.Log ("**** I entered pipe FOUR!!");
 
 			//check that the ball is validly hitting the pipe, if no, nothing happens
-			if ((ballDirection == 1 && (hitCubes [7].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [7].transform.position.y + 0.3f)) || (ballDirection == 2 && (hitCubes [6].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [6].transform.position.x + 0.3f))) {
+			//if ((ballDirection == 1 && (hitCubes [7].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [7].transform.position.y + 0.3f)) || (ballDirection == 2 && (hitCubes [6].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [6].transform.position.x + 0.3f))) {
 				
 				
 				//pipe needs freezes by calling player script and setting collision true
@@ -126,7 +128,7 @@ public class ballCollide : MonoBehaviour {
 				GetComponent<MeshRenderer> ().enabled = false;
 				StartCoroutine (newDirectionPipeFourDelay ());
 				//ball needs to reappear in a new place, going a new direction
-			}
+			//}
 		} else if (other.tag == "Goal1") {
 			Debug.Log ("GOOOOOOAL");
 			Destroy(gameObject);
@@ -134,8 +136,6 @@ public class ballCollide : MonoBehaviour {
 			levelScript.GetComponent<LevelScript>().win();
 			
 		}
-
-
 	}
 
 	IEnumerator newDirectionPipeOneDelay() {

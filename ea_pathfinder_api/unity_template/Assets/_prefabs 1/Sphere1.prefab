@@ -90,11 +90,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControl: {fileID: 0}
-  hitCubes: []
+  hitCubes:
+  - {fileID: 147466, guid: 9ef2aeb36fd8f44688e3cbac73835fab, type: 2}
+  - {fileID: 157844, guid: 9ef2aeb36fd8f44688e3cbac73835fab, type: 2}
+  - {fileID: 161906, guid: b6da81f2b387746fb811d32141015152, type: 2}
+  - {fileID: 198766, guid: b6da81f2b387746fb811d32141015152, type: 2}
+  - {fileID: 113538, guid: 50f3d301b31f74399b77adde38aae828, type: 2}
+  - {fileID: 148816, guid: 50f3d301b31f74399b77adde38aae828, type: 2}
+  - {fileID: 135540, guid: d0b89f7f66a3e45fdab33f34c042be95, type: 2}
+  - {fileID: 138984, guid: d0b89f7f66a3e45fdab33f34c042be95, type: 2}
   levelScript: {fileID: 0}
   ballSpeed: 2
   ballDirection: 2
-  startGame: 0
+  startGame: 1
 --- !u!135 &13565112
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -115,8 +123,48 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: hitCubes.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: ballSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[0]
+      value: 
+      objectReference: {fileID: 147466, guid: 9ef2aeb36fd8f44688e3cbac73835fab, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[1]
+      value: 
+      objectReference: {fileID: 157844, guid: 9ef2aeb36fd8f44688e3cbac73835fab, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[2]
+      value: 
+      objectReference: {fileID: 161906, guid: b6da81f2b387746fb811d32141015152, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[3]
+      value: 
+      objectReference: {fileID: 198766, guid: b6da81f2b387746fb811d32141015152, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[4]
+      value: 
+      objectReference: {fileID: 113538, guid: 50f3d301b31f74399b77adde38aae828, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[5]
+      value: 
+      objectReference: {fileID: 148816, guid: 50f3d301b31f74399b77adde38aae828, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[6]
+      value: 
+      objectReference: {fileID: 135540, guid: d0b89f7f66a3e45fdab33f34c042be95, type: 2}
+    - target: {fileID: 0}
+      propertyPath: hitCubes.Array.data[7]
+      value: 
+      objectReference: {fileID: 138984, guid: d0b89f7f66a3e45fdab33f34c042be95, type: 2}
+    - target: {fileID: 0}
+      propertyPath: startGame
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

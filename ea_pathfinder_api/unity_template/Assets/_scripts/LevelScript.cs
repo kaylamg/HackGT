@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class LevelScript : MonoBehaviour {
 
 	public int playerLevel;
-	public Text endGameText;
+	public GameObject endGameTextPanel;
 
 	public GameObject ballCollideScript;
 
@@ -133,7 +133,7 @@ public class LevelScript : MonoBehaviour {
 	}
 
 	public void endGame() {
-		endGameText.enabled = false;
+		endGameTextPanel.SetActive(true);
 		Debug.Log ("You Lost!");
 	}
 

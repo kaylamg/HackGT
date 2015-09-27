@@ -6,11 +6,12 @@ using BladeCast;
 
 public class PlayerScript : MonoBehaviour {
 
-	public GameObject [] controllers;
+	//public GameObject [] controllers;
 
 	public bool inCollision = false;
 
-	private int ctlrNum;
+	public int ctlrNum;
+
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +30,6 @@ public class PlayerScript : MonoBehaviour {
 			StartCoroutine(newDirectionDelay());
 		}
 
-		ctlrNum = msg.ControllerSource;
-
 		float x = float.Parse (msg.Payload.GetField ("x-coordinate").ToString ());
 		float y = float.Parse (msg.Payload.GetField ("y-coordinate").ToString());
 
@@ -40,9 +39,16 @@ public class PlayerScript : MonoBehaviour {
 		newPos.z = -1;
 		//newPos.y = -newPos.y;
 
-		controllers [ctlrNum - 1].transform.position = newPos;
-		Debug.Log ("X POSITION: " + x);
-		Debug.Log ("Y POSITION: " + y);
+		//controllers [ctlrNum - 1].
+
+
+
+		if (ctlrNum == msg.ControllerSource) {
+
+			transform.position = newPos;
+			Debug.Log ("X POSITION: " + x);
+			Debug.Log ("Y POSITION: " + y);
+		}
 	}
 
 
