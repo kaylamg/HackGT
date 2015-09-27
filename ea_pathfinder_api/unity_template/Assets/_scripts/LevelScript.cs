@@ -62,20 +62,36 @@ public class LevelScript : MonoBehaviour {
 		case(0):
 			switch(currentBall) {
 			case(0):
-				GameObject ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(0, 0, -1), Quaternion.identity);
-				ball.GetComponent<ballCollide>().ballDirection = 1;
+				GameObject ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(0, 3, -1), Quaternion.identity);
+				ball.GetComponent<ballCollide>().ballDirection = 3;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LRP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LLP;
 				break;
 			case(1):
 				ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(0, 0, -1), Quaternion.identity);
 				ball.GetComponent<ballCollide>().ballDirection = 3;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LRP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LLP;
 				break;
 			case(2):
 				ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(-6.5f, 4.34f, -1), Quaternion.identity);
 				ball.GetComponent<ballCollide>().ballDirection = 2;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LRP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LLP;
 				break;
 			case(3):
 				ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(6, -4.28f, -1), Quaternion.identity);
 				ball.GetComponent<ballCollide>().ballDirection = 4;
+				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
+				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
+				ball.GetComponent<ballCollide>().hitCubes[2] = LRP;
+				ball.GetComponent<ballCollide>().hitCubes[3] = LLP;
 				break;
 			case(4):
 				increaseLevel();
