@@ -16,7 +16,6 @@ $(document).ready(function () {
 
 	// SOUNDS
 	startAudio = new Audio ("sound/electric-power-turn-on.mp3");
-	touchEndAudio = new Audio ("sound/peeeooop.wav");
 
 	// START SCREEN
 	var gameInProgress = 0;
@@ -39,41 +38,33 @@ $(document).ready(function () {
 
 	$("body").on('touchstart', function (e) {
 		$("body").addClass('touched');
-		touchEndAudio.play();
 	});
 
 	$("body").on('touchend', function (e) {
 		e.preventDefault();
 		if (!gameInProgress) {
-			startAudio.play();
-			touchEndAudio.play();
-			// send msg to unity
 			var msg = { "type": "start" };
 			conn.sendMessage(msg, 0);
 
-			// GAME BEGINS, display game screen
 			gameInProgress = 1;
 			$("body").removeClass('start');
+
+			startAudio.play();
 		}
-		touchEndAudio.play();
 		$("body").removeClass('touched');
 	});
 
 	$("body").on('mousedown', function (e) {
 		e.preventDefault();
 		if (!gameInProgress) {
-			startAudio.play();
-			touchEndAudio.play();
-			// send msg to unity
 			var msg = { "type": "start" };
 			conn.sendMessage(msg, 0);
 
-			// GAME BEGINS, display game screen
 			gameInProgress = 1;
 			$("body").removeClass('start');
+
+			startAudio.play();
 		}
-		touchEndAudio.play();
 		$("body").removeClass('touched');
 	});
-
 });
