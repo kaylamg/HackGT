@@ -4,6 +4,7 @@ using System.Collections;
 public class ballCollide : MonoBehaviour {
 
 	public GameObject playerControl;
+
 	//cube 0 will be the top right cube for player 1, 1 will be bottom left, 2 & 3 will be for controller 2, etc.
 	public GameObject[] hitCubes;
 
@@ -57,7 +58,6 @@ public class ballCollide : MonoBehaviour {
 
 	
 	void OnTriggerEnter(Collider other) {
-		Debug.Log ("************* entered the trigger");
 		if (other.tag == "wall") {
 			Debug.Log ("**** I hit the wall");
 			Destroy (gameObject);
@@ -70,26 +70,15 @@ public class ballCollide : MonoBehaviour {
 
 			//check that the ball is validly hitting the pipe, if no, nothing happens
 			bool cond1 = (ballDirection == 3);  
-			bool cond2 = (transform.position.y <= (hitCubes [0].transform.position.y + 0.3));
-			bool cond3 = (transform.position.y >= (hitCubes [0].transform.position.y - 0.3));
+			bool cond2 = (transform.position.y <= (hitCubes [0].transform.position.y + 0.5));
+			bool cond3 = (transform.position.y >= (hitCubes [0].transform.position.y - 0.5));
 
 
 			bool cond4 = (ballDirection == 4); 
-			bool cond5 = (transform.position.x <= (hitCubes [0].transform.position.x + 0.3));
-			bool cond6 = (transform.position.x >= (hitCubes [0].transform.position.x - 0.3));
-
-//			bool cond4 = (ballDirection == 4);
-//			bool cond5 = (transform.position.x <= (hitCubes[1].transform.position.x - (hitCubes[1].transform.parent.position.x - 0.3f)));
-//			bool cond6 = (transform.position.x >= (hitCubes[1].transform.position.x - (hitCubes[1].transform.parent.position.x + 0.3f)));
-
-			Debug.Log (cond2);
-			Debug.Log (cond3);
-
-			//if ((ballDirection == 3 && (hitCubes [0].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [0].transform.position.y + 0.3f)) || (ballDirection == 4 && (hitCubes [1].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [1].transform.position.x + 0.3f))) {
+			bool cond5 = (transform.position.x <= (hitCubes [0].transform.position.x + 0.5));
+			bool cond6 = (transform.position.x >= (hitCubes [0].transform.position.x - 0.5));
 
 			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
-
-				//Debug.Log ("HIT CUBES Left: " + (hitCubes [1].transform.position.x - 0.1f) + "X POSITION: " + transform.position.x + "RIGHT POS: " + (hitCubes [1].transform.position.x + 0.1f));
 
 				//pipe needs freezes by calling player script and setting collision true
 				playerControl.GetComponent<PlayerScript> ().inCollision = true;
@@ -97,6 +86,8 @@ public class ballCollide : MonoBehaviour {
 
 				//ball needs to disappear to "go through" pipe
 				GetComponent<MeshRenderer> ().enabled = false;
+				this.enabled = false;
+
 				StartCoroutine (newDirectionPipeOneDelay ());
 				//ball needs to reappear in a new place, going a new direction
 			}
@@ -104,35 +95,24 @@ public class ballCollide : MonoBehaviour {
 		} else if (other.tag == "Pipe2") {
 			Debug.Log ("**** I entered pipe TWO!!");
 
-//			Debug.Log ("******* x" + hitCubes[1].transform.position.x);
-//			Debug.Log ("****** y" + hitCubes[1].transform.position.y);
-//			Debug.Log (transform.position.x + " " + transform.position.y);
-
 			//check that the ball is validly hitting the pipe, if no, nothing happens
 			bool cond1 = (ballDirection == 1);  
-			bool cond2 = transform.position.y <= (hitCubes[1].transform.position.y + 0.3);
-			bool cond3 = transform.position.y >= (hitCubes[1].transform.position.y - 0.3);
+			bool cond2 = transform.position.y <= (hitCubes[1].transform.position.y + 0.5);
+			bool cond3 = transform.position.y >= (hitCubes[1].transform.position.y - 0.5);
 
 			bool cond4 = (ballDirection == 4);  
-			bool cond5 = transform.position.x <= (hitCubes[1].transform.position.x + 0.3);
-			bool cond6 = transform.position.x >= (hitCubes[1].transform.position.x - 0.3);
-
-
-
-			//bool cond4 = (ballDirection == 4);
-			//bool cond5 = (transform.position.x <= (hitCubes[3].transform.position.x - (hitCubes[3].transform.parent.position.x - 0.3f)));
-			//bool cond6 = (transform.position.x >= (hitCubes[3].transform.position.x - (hitCubes[3].transform.parent.position.x + 0.3f)));
+			bool cond5 = transform.position.x <= (hitCubes[1].transform.position.x + 0.5);
+			bool cond6 = transform.position.x >= (hitCubes[1].transform.position.x - 0.5);
 
 			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
-
-				Debug.Log ("INSIDE PIPE 2 FUNCTION");
 				
 				//pipe needs freezes by calling player script and setting collision true
 				playerControl.GetComponent<PlayerScript> ().inCollision = true;
-				
-				
+
 				//ball needs to disappear to "go through" pipe
 				GetComponent<MeshRenderer> ().enabled = false;
+				this.enabled = false;
+
 				StartCoroutine (newDirectionPipeTwoDelay ());
 				//ball needs to reappear in a new place, going a new direction
 			}
@@ -143,31 +123,15 @@ public class ballCollide : MonoBehaviour {
 			//check that the ball is validly hitting the pipe, if no, nothing happens
 
 			bool cond1 = (ballDirection == 3);
-			bool cond2 = (transform.position.y <= (hitCubes [2].transform.position.y + 0.3));
-			bool cond3 = (transform.position.y >= (hitCubes [2].transform.position.y - 0.3));
+			bool cond2 = (transform.position.y <= (hitCubes [2].transform.position.y + 0.5));
+			bool cond3 = (transform.position.y >= (hitCubes [2].transform.position.y - 0.5));
 
 			bool cond4 = (ballDirection == 2);
-			bool cond5 = (transform.position.x <= (hitCubes [2].transform.position.x + 0.3));
-			bool cond6 = (transform.position.x >= (hitCubes [2].transform.position.x - 0.3));
+			bool cond5 = (transform.position.x <= (hitCubes [2].transform.position.x + 0.5));
+			bool cond6 = (transform.position.x >= (hitCubes [2].transform.position.x - 0.5));
 
-
-
-
-			/*
-			bool cond2 = (transform.position.y <= (hitCubes [4].transform.position.y - (hitCubes [4].transform.parent.position.y - 0.3f)));
-			bool cond3 = (transform.position.y >= (hitCubes [4].transform.position.y - (hitCubes [4].transform.parent.position.y + 0.3f)));
-			
-			bool cond4 = (ballDirection == 2);
-			bool cond5 = (transform.position.x <= (hitCubes[5].transform.position.x - (hitCubes[5].transform.parent.position.x - 0.3f)));
-			bool cond6 = (transform.position.x >= (hitCubes[5].transform.position.x - (hitCubes[5].transform.parent.position.x + 0.3f)));
-			*/
 
 			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
-			
-
-
-			//if ((ballDirection == 3 && (hitCubes [5].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [5].transform.position.y + 0.3f)) || (ballDirection == 2 && (hitCubes [4].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [4].transform.position.x + 0.3f))) {
-
 				
 				//pipe needs freezes by calling player script and setting collision true
 				playerControl.GetComponent<PlayerScript> ().inCollision = true;
@@ -175,6 +139,8 @@ public class ballCollide : MonoBehaviour {
 				
 				//ball needs to disappear to "go through" pipe
 				GetComponent<MeshRenderer> ().enabled = false;
+				this.enabled = false;
+
 				StartCoroutine (newDirectionPipeThreeDelay ());
 				//ball needs to reappear in a new place, going a new direction
 			}
@@ -185,18 +151,15 @@ public class ballCollide : MonoBehaviour {
 			//check that the ball is validly hitting the pipe, if no, nothing happens
 
 			bool cond1 = (ballDirection == 1);
-			bool cond2 = (transform.position.y <= (hitCubes [3].transform.position.y + 0.3));
-			bool cond3 = (transform.position.y >= (hitCubes [3].transform.position.y - 0.3));
+			bool cond2 = (transform.position.y <= (hitCubes [3].transform.position.y + 0.5));
+			bool cond3 = (transform.position.y >= (hitCubes [3].transform.position.y - 0.5));
 
 			
 			bool cond4 = (ballDirection == 2);
-			bool cond5 = (transform.position.x <= (hitCubes [3].transform.position.x + 0.3));
-			bool cond6 = (transform.position.x >= (hitCubes [3].transform.position.x - 0.3));
+			bool cond5 = (transform.position.x <= (hitCubes [3].transform.position.x + 0.5));
+			bool cond6 = (transform.position.x >= (hitCubes [3].transform.position.x - 0.5));
 			
 			if ((cond1 && cond2 && cond3)|| (cond4 && cond5 && cond6)) {
-
-			//if ((ballDirection == 1 && (hitCubes [7].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [7].transform.position.y + 0.3f)) || (ballDirection == 2 && (hitCubes [6].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [6].transform.position.x + 0.3f))) {
-				
 				
 				//pipe needs freezes by calling player script and setting collision true
 				playerControl.GetComponent<PlayerScript> ().inCollision = true;
@@ -204,6 +167,8 @@ public class ballCollide : MonoBehaviour {
 				
 				//ball needs to disappear to "go through" pipe
 				GetComponent<MeshRenderer> ().enabled = false;
+				this.enabled = false;
+
 				StartCoroutine (newDirectionPipeFourDelay ());
 				//ball needs to reappear in a new place, going a new direction
 
@@ -224,9 +189,10 @@ public class ballCollide : MonoBehaviour {
 
 		ballDirection = 0;
 		print(Time.time);
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		print(Time.time);
 		GetComponent<MeshRenderer>().enabled = true;
+		this.enabled = true;
 
 		//if ball was moving to the left
 		if (oldBallDirection == 3){
@@ -243,15 +209,16 @@ public class ballCollide : MonoBehaviour {
 
 
 	IEnumerator newDirectionPipeTwoDelay() {
-		
+
 		int oldBallDirection = ballDirection;
 		Debug.Log (oldBallDirection);
 		
 		ballDirection = 0;
 		print(Time.time);
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		print(Time.time);
 		GetComponent<MeshRenderer>().enabled = true;
+		this.enabled = true;
 		
 		//if ball was moving to the left
 		if (oldBallDirection == 1){
@@ -273,9 +240,10 @@ public class ballCollide : MonoBehaviour {
 		
 		ballDirection = 0;
 		print(Time.time);
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		print(Time.time);
 		GetComponent<MeshRenderer>().enabled = true;
+		this.enabled = true;
 		
 		//if ball was moving to the left
 		if (oldBallDirection == 3){
@@ -297,9 +265,10 @@ public class ballCollide : MonoBehaviour {
 		
 		ballDirection = 0;
 		print(Time.time);
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		print(Time.time);
 		GetComponent<MeshRenderer>().enabled = true;
+		this.enabled = true;
 		
 		//if ball was moving to the left
 		if (oldBallDirection == 1){

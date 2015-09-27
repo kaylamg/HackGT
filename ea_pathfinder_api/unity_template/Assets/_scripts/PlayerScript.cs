@@ -27,38 +27,36 @@ public class PlayerScript : MonoBehaviour {
 
 	void positionHandler (ControllerMessage msg){
 		if (inCollision == true) {
-			StartCoroutine(newDirectionDelay());
-		}
+			Debug.Log ("Mama I made it");
+			StartCoroutine (newDirectionDelay ());
+		} else if (inCollision == false) {
 
-		float x = float.Parse (msg.Payload.GetField ("x-coordinate").ToString ());
-		float y = float.Parse (msg.Payload.GetField ("y-coordinate").ToString());
+			float x = float.Parse (msg.Payload.GetField ("x-coordinate").ToString ());
+			float y = float.Parse (msg.Payload.GetField ("y-coordinate").ToString ());
 
-		Vector3 newPos = Camera.main.ViewportToWorldPoint(new Vector3 (x, 1- y, -1));
-		Debug.Log (newPos);
+			Vector3 newPos = Camera.main.ViewportToWorldPoint (new Vector3 (x, 1 - y, -1));
+			Debug.Log (newPos);
 
-		newPos.z = -1;
-		//newPos.y = -newPos.y;
+			newPos.z = -1;
 
-		//controllers [ctlrNum - 1].
+			if (ctlrNum == msg.ControllerSource) {
 
-
-
-		if (ctlrNum == msg.ControllerSource) {
-
-			transform.position = newPos;
-			Debug.Log ("X POSITION: " + x);
-			Debug.Log ("Y POSITION: " + y);
+				transform.position = newPos;
+				Debug.Log ("X POSITION: " + x);
+				Debug.Log ("Y POSITION: " + y);
+			}
 		}
 	}
 
 
 	IEnumerator newDirectionDelay() {
-		print(Time.time);
-		yield return new WaitForSeconds(2);
-		print(Time.time);
-		inCollision = false;
+
+		yield return new WaitForSeconds(5);
+
+		Debug.Log ("after 3 second");
+		//inCollision = false;
+		Debug.Log ("false now");
 	}
 
 	
-
 }
