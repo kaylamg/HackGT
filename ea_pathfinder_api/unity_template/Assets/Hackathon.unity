@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5364ace19d34363b9fe4169a5f4ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSound: {fileID: 8300000, guid: a8aa23433ce974825844aba1299c3517, type: 3}
   playerLevel: 0
   endGameTextPanel: {fileID: 703572903}
   levelUpPanel: {fileID: 1112566770}

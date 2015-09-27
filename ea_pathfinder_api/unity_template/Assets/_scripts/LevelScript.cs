@@ -2,9 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 using BladeCast;
+using UnityEngine.Audio;
 
 public class LevelScript : MonoBehaviour {
 
+	//audio stuff
+	public AudioClip goalSound;
+	AudioSource audio;
+	
 	public int playerLevel;
 	public GameObject endGameTextPanel;
 	public GameObject levelUpPanel;
@@ -38,6 +43,9 @@ public class LevelScript : MonoBehaviour {
 
 		BCMessenger.Instance.RegisterListener ("start", 0, this.gameObject, "startHandler");
 
+		ballCollideScript = GameObject.Find ("ballMoveScript");
+		audio = GetComponent<AudioSource>();
+
 	}
 
 	void playersReadyInitializeGame (){
@@ -46,7 +54,6 @@ public class LevelScript : MonoBehaviour {
 				livesArray [i].SetActive (true);
 			}
 			playerLevel = 1; //0
-			ballCollideScript = GameObject.Find ("ballMoveScript");
 			setupLevel ();
 			restartGame ();
 	}
@@ -69,6 +76,7 @@ public class LevelScript : MonoBehaviour {
 	}
 
 	public void win () {
+		audio.PlayOneShot(goalSound, 0.7F);
 		currentBall++;
 		restartGame ();
 		
@@ -264,5 +272,6 @@ public class LevelScript : MonoBehaviour {
 		print (Time.time);
 		levelUpPanel.SetActive (false);
 	}
+
 
 }
