@@ -63,7 +63,7 @@ public class LevelScript : MonoBehaviour {
 			switch(currentBall) {
 			case(0):
 				GameObject ball = (GameObject) Instantiate(ballPrefab, transform.position = new Vector3(0, 3, -1), Quaternion.identity);
-				ball.GetComponent<ballCollide>().ballDirection = 3;
+				ball.GetComponent<ballCollide>().ballDirection = 1;
 				ball.GetComponent<ballCollide>().hitCubes[0] = ULP;
 				ball.GetComponent<ballCollide>().hitCubes[1] = URP;
 				ball.GetComponent<ballCollide>().hitCubes[2] = LRP;

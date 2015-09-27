@@ -11,7 +11,7 @@ public class ballCollide : MonoBehaviour {
 
 	public GameObject levelScript;
 
-	public float ballSpeed = 5f;
+	public float ballSpeed = 3f;
 
 	//1 will mean right, 2 down, 3 left, 4 up, 0 not moving
 	public int ballDirection;
@@ -72,15 +72,22 @@ public class ballCollide : MonoBehaviour {
 			bool cond1 = (ballDirection == 3);  
 			bool cond2 = (transform.position.y <= (hitCubes [0].transform.position.y + 0.3));
 			bool cond3 = (transform.position.y >= (hitCubes [0].transform.position.y - 0.3));
-			
-			bool cond4 = (ballDirection == 4);
-			bool cond5 = (transform.position.x <= (hitCubes[1].transform.position.x - (hitCubes[1].transform.parent.position.x - 0.3f)));
-			bool cond6 = (transform.position.x >= (hitCubes[1].transform.position.x - (hitCubes[1].transform.parent.position.x + 0.3f)));
 
+
+			bool cond4 = (ballDirection == 4); 
+			bool cond5 = (transform.position.x <= (hitCubes [0].transform.position.x + 0.3));
+			bool cond6 = (transform.position.x >= (hitCubes [0].transform.position.x - 0.3));
+
+//			bool cond4 = (ballDirection == 4);
+//			bool cond5 = (transform.position.x <= (hitCubes[1].transform.position.x - (hitCubes[1].transform.parent.position.x - 0.3f)));
+//			bool cond6 = (transform.position.x >= (hitCubes[1].transform.position.x - (hitCubes[1].transform.parent.position.x + 0.3f)));
+
+			Debug.Log (cond2);
+			Debug.Log (cond3);
 
 			//if ((ballDirection == 3 && (hitCubes [0].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [0].transform.position.y + 0.3f)) || (ballDirection == 4 && (hitCubes [1].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [1].transform.position.x + 0.3f))) {
 
-			if (cond1 && cond2 && cond3){ //|| (cond4 && cond5 && cond6)) {
+			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
 
 				//Debug.Log ("HIT CUBES Left: " + (hitCubes [1].transform.position.x - 0.1f) + "X POSITION: " + transform.position.x + "RIGHT POS: " + (hitCubes [1].transform.position.x + 0.1f));
 
@@ -106,12 +113,17 @@ public class ballCollide : MonoBehaviour {
 			bool cond2 = transform.position.y <= (hitCubes[1].transform.position.y + 0.3);
 			bool cond3 = transform.position.y >= (hitCubes[1].transform.position.y - 0.3);
 
+			bool cond4 = (ballDirection == 4);  
+			bool cond5 = transform.position.x <= (hitCubes[1].transform.position.x + 0.3);
+			bool cond6 = transform.position.x >= (hitCubes[1].transform.position.x - 0.3);
+
+
 
 			//bool cond4 = (ballDirection == 4);
 			//bool cond5 = (transform.position.x <= (hitCubes[3].transform.position.x - (hitCubes[3].transform.parent.position.x - 0.3f)));
 			//bool cond6 = (transform.position.x >= (hitCubes[3].transform.position.x - (hitCubes[3].transform.parent.position.x + 0.3f)));
 
-			if (cond1 && cond2 && cond3 ){ //|| (cond4 && cond5 && cond6)) {
+			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
 
 				Debug.Log ("INSIDE PIPE 2 FUNCTION");
 				
@@ -130,15 +142,29 @@ public class ballCollide : MonoBehaviour {
 
 			//check that the ball is validly hitting the pipe, if no, nothing happens
 
-			bool cond1 = (ballDirection == 3);  
+			bool cond1 = (ballDirection == 3);
+			bool cond2 = (transform.position.y <= (hitCubes [2].transform.position.y + 0.3));
+			bool cond3 = (transform.position.y >= (hitCubes [2].transform.position.y - 0.3));
+
+			bool cond4 = (ballDirection == 2);
+			bool cond5 = (transform.position.x <= (hitCubes [2].transform.position.x + 0.3));
+			bool cond6 = (transform.position.x >= (hitCubes [2].transform.position.x - 0.3));
+
+
+
+
+			/*
 			bool cond2 = (transform.position.y <= (hitCubes [4].transform.position.y - (hitCubes [4].transform.parent.position.y - 0.3f)));
 			bool cond3 = (transform.position.y >= (hitCubes [4].transform.position.y - (hitCubes [4].transform.parent.position.y + 0.3f)));
 			
 			bool cond4 = (ballDirection == 2);
 			bool cond5 = (transform.position.x <= (hitCubes[5].transform.position.x - (hitCubes[5].transform.parent.position.x - 0.3f)));
 			bool cond6 = (transform.position.x >= (hitCubes[5].transform.position.x - (hitCubes[5].transform.parent.position.x + 0.3f)));
+			*/
+
+			if ((cond1 && cond2 && cond3) || (cond4 && cond5 && cond6)) {
 			
-			if ((cond1 && cond2 && cond3)|| (cond4 && cond5 && cond6)) {
+
 
 			//if ((ballDirection == 3 && (hitCubes [5].transform.position.y - 0.3f <= transform.position.y && transform.position.y <= hitCubes [5].transform.position.y + 0.3f)) || (ballDirection == 2 && (hitCubes [4].transform.position.x - 0.3f <= transform.position.x && transform.position.x <= hitCubes [4].transform.position.x + 0.3f))) {
 
@@ -158,13 +184,14 @@ public class ballCollide : MonoBehaviour {
 
 			//check that the ball is validly hitting the pipe, if no, nothing happens
 
-			bool cond1 = (ballDirection == 1);  
-			bool cond2 = (transform.position.y <= (hitCubes [6].transform.position.y - (hitCubes [6].transform.parent.position.y - 0.3f)));
-			bool cond3 = (transform.position.y >= (hitCubes [6].transform.position.y - (hitCubes [6].transform.parent.position.y + 0.3f)));
+			bool cond1 = (ballDirection == 1);
+			bool cond2 = (transform.position.y <= (hitCubes [3].transform.position.y + 0.3));
+			bool cond3 = (transform.position.y >= (hitCubes [3].transform.position.y - 0.3));
+
 			
 			bool cond4 = (ballDirection == 2);
-			bool cond5 = (transform.position.x <= (hitCubes[7].transform.position.x - (hitCubes[7].transform.parent.position.x - 0.3f)));
-			bool cond6 = (transform.position.x >= (hitCubes[7].transform.position.x - (hitCubes[7].transform.parent.position.x + 0.3f)));
+			bool cond5 = (transform.position.x <= (hitCubes [3].transform.position.x + 0.3));
+			bool cond6 = (transform.position.x >= (hitCubes [3].transform.position.x - 0.3));
 			
 			if ((cond1 && cond2 && cond3)|| (cond4 && cond5 && cond6)) {
 
