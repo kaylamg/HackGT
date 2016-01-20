@@ -2,10 +2,12 @@
 <p align="center">
 
 A multiplayer game that uses mobile devices as controllers. <br />
-Built from scratch at HackGT 2015
+Built from scratch at HackGT 2015. <br />
 <img src="http://i.imgur.com/C6bjYM7.png?1">
 
 </p>
+
+***
 
 ### How It Works
 Each player pulls out their mobile device, enters a specific URL, and controls a pipe on the main screen via dragging.
